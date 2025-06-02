@@ -1,4 +1,4 @@
-Study Hub
+#Study Hub
 Study Hub is a comprehensive web application designed to empower students by facilitating the formation of effective study groups, seamless sharing of notes, and efficient tracking of study progress — all within a single, intuitive platform. Leveraging smart matching algorithms, Study Hub connects students based on shared units, compatible availability, and complementary study habits to foster collaboration and maximize academic success.
 
 Features
