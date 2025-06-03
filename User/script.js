@@ -6,7 +6,7 @@
       unitName: "Data Structures & Algorithms",
       category: "Computer Science",
       members: 15,
-      image: "https://images.unsplash.com/photo-1581090700227-18e253ebff0b?auto=format&fit=crop&w=800&q=60"
+      image: "/images/dsa.jpg"
     },
     {
       id: 2,
@@ -48,7 +48,7 @@
       unitName: "Marketing Fundamentals",
       category: "Business",
       members: 20,
-      image: "https://images.unsplash.com/photo-1523475496153-3cfa3b8c2259?auto=format&fit=crop&w=800&q=60"
+      image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=800&q=60"
     },
   ];
 
