@@ -172,6 +172,8 @@ nav {
 }
 #login-modal.active {
   display: flex;
+   backdrop-filter: blur(3px);
+
 }
 #signup-modal{
 position: fixed;
@@ -184,6 +186,7 @@ position: fixed;
 }
 #signup-modal.active {
   display: flex;
+  backdrop-filter: blur(3px);
 }
 .login-box {
   background: var(--background-card);

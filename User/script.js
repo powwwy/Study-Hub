@@ -63,7 +63,7 @@ const switchToLoginLink = document.getElementById('switch-to-login');
 const switchToSignupLink = document.getElementById('switch-to-signup');
 const signupForm = document.getElementById('signup-form');
 
-// Show signup modal (optional external button)
+// Show signup modal
 document.getElementById('open-signup-btn')?.addEventListener('click', () => {
   signupModal.classList.add('active');
   loginModal.classList.remove('active');
@@ -155,7 +155,7 @@ signupForm.addEventListener('submit', e => {
   // Keep track of joined group IDs
   let joinedGroups = new Set();
 
-  // Render cards
+  // Show cards
   function renderCards() {
     cardsGrid.innerHTML = '';
     studyGroups.forEach(group => {
