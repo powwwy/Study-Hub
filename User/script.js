@@ -6,21 +6,21 @@
       unitName: "Data Structures & Algorithms",
       category: "Computer Science",
       members: 15,
-      image: "/images/dsa.jpg"
+      image: "https://github.com/powwwy/Study-Hub/blob/main/images/dsa.jpg?raw=true"
     },
     {
       id: 2,
       unitName: "Business Management",
       category: "Business",
       members: 12,
-      image: "/images/business-management.png"
+      image: "https://github.com/powwwy/Study-Hub/blob/main/images/business-management.png?raw=true"
     },
     {
       id: 3,
       unitName: "Japanese I",
       category: "Humanities",
       members: 18,
-      image: "/images/japanese-i.png"
+      image: "https://github.com/powwwy/Study-Hub/blob/main/images/japanese-i.png?raw=true"
     },
     {
       id: 4,
