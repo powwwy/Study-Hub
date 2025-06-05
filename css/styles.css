@@ -33,7 +33,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .heads h1 {
   font-size: 2.5rem;
