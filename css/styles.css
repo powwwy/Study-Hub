@@ -1,4 +1,4 @@
-/* Colors in root */
+/* Colors scheme */
 :root {
   --background-light: #d7fff8;
   --background-card: #2d4a53;
@@ -17,7 +17,6 @@
   --color-close-btn-hover: #fff;
 }
 
-/* Reset & basics */
 * {
   margin: 0; padding: 0; box-sizing: border-box;
 }
@@ -175,6 +174,7 @@ nav {
    backdrop-filter: blur(3px);
 
 }
+/*signup modal*/
 #signup-modal{
 position: fixed;
   inset: 0;
