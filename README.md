@@ -18,7 +18,7 @@ CSS3 for responsive and modern styling to enhance user experience.
 Project Overview
 index.html – Core interface showcasing matched study groups, shared notes, and progress tracking components.
 
-styles.css (if applicable) – Styling resources to maintain a cohesive, clean design language.
+styles.css – Styling resources to maintain a cohesive, clean design language.
 
 Getting Started
 Clone or download the repository.
@@ -29,8 +29,6 @@ Explore the interface to understand the envisioned workflow and functionalities.
 
 Future Enhancements
 Robust user authentication and profile management system.
-
-Advanced matching algorithms incorporating study habits and availability patterns.
 
 Note upload/download and version control functionalities.
 
