@@ -1,0 +1,103 @@
+:root {
+  --background-light: #d7fff8;
+  --background-card: #2d4a53;
+  --background-card-hover-shadow: #5a636a/0.6;
+  --background-card-shadow: #afb3b7/0.3;
+  --color-text: #eee;
+  --color-text-muted: #020202;
+  --color-primary: #cfd4da;
+  --color-primary-light: #69818d;
+  --color-accent: #58ddd0;
+  --color-button-bg: #0d1f23;
+  --color-button-bg-disabled: #ff5555;
+  --color-error: #ff7070;
+  --color-login-bg: #222139;
+  --color-close-btn: #fb0202;
+  --color-close-btn-hover: #fff;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-text);
+}
+
+h1{
+    font-size: 3.5rem;
+    color: var(--background-card);
+    text-shadow:
+        2px 2px 0 var(--color-accent),
+        4px 4px 0 var(--background-light),
+        6px 6px 0 var(--color-primary-light);
+        margin-left: 300px;
+}
+
+.targets-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  color: var(--color-text);
+  margin-left: 300px;
+}
+
+.target-card {
+  background-color: var(--background-card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px var(--background-card-shadow);
+  transition: transform 0.2s, box-shadow 0.3s;
+  
+  margin: auto;
+  
+}
+
+.target-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px var(--background-card-hover-shadow);
+}
+
+.target-card h3 {
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+  font-size: 1.3rem;
+}
+
+.cat-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  gap: 0.5rem;
+}
+
+.cat-input label {
+  flex: 1;
+  color: var(--color-primary);
+}
+
+.cat-input input {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid var(--color-primary-light);
+  background-color: var(--color-text);
+  color: var(--color-text-muted);
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.6rem;
+  background-color: var(--color-button-bg);
+  color: var(--color-text);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-accent);
+  color: #000;
+}
