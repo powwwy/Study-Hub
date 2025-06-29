@@ -27,7 +27,7 @@ if (!isset($_SESSION['userID'])) {
       <li><a href="/Study-Hub/User/profile.php">Profile</a></li>
       <li><a href="/Study-Hub/Metrics/metrics.html">Metrics</a></li>
       <li><a href="/Study-Hub/User/pomodoro.php">Pomodoro</a></li>
-      <li><a href="/Study-Hub/Metrics/targets.php">Targets</a></li>
+      <li><a href="/Study-Hub/Metrics/targets.html">Targets</a></li>
       <li><a href="/Study-Hub/User/files.php">Files</a></li>
       <li><a href="/Study-Hub/php/logout.php">Logout</a></li>
     </ul>
