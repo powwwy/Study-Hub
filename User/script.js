@@ -100,3 +100,83 @@ openLoginBtn.addEventListener("click", () => {
 
 // Initial render
 renderCards();
+// Pomodoro Timer Logic
+let timeLeft = 25 * 60;
+let timerInterval = null;
+
+const timerDisplay = document.getElementById("timer");
+const startBtn = document.getElementById("startBtn");
+const resetBtn = document.getElementById("resetBtn");
+
+function updateDisplay() {
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+  timerDisplay.textContent =
+    String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+}
+
+function startTimer() {
+  if (timerInterval) return;
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateDisplay();
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      alert("Pomodoro finished! Take a break 🎉");
+    }
+  }, 1000);
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  timeLeft = 25 * 60;
+  updateDisplay();
+}
+
+startBtn.addEventListener("click", startTimer);
+resetBtn.addEventListener("click", resetTimer);
+
+updateDisplay(); // Initial call
+// Handle opening and closing of Add Group modal
+const openGroupBtn = document.getElementById("open-add-group");
+const closeGroupBtn = document.getElementById("close-add-group");
+const groupModal = document.getElementById("add-group-modal");
+const addGroupForm = document.getElementById("add-group-form");
+
+openGroupBtn.addEventListener("click", () => {
+  groupModal.style.display = "block";
+});
+
+closeGroupBtn.addEventListener("click", () => {
+  groupModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === groupModal) {
+    groupModal.style.display = "none";
+  }
+});
+
+// Handle Add Group form submission
+addGroupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const unitName = document.getElementById("unitName").value;
+  const category = document.getElementById("category").value;
+  const members = parseInt(document.getElementById("members").value);
+
+  const newGroup = {
+    id: studyGroups.length + 1,
+    unitName,
+    category,
+    members,
+    image: "https://via.placeholder.com/300x150?text=" + encodeURIComponent(unitName)
+  };
+
+  studyGroups.push(newGroup);
+  addGroupForm.reset();
+  groupModal.style.display = "none";
+  renderCards(); // Refresh the cards
+});
