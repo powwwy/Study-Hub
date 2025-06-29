@@ -18,7 +18,7 @@ require '../php/profiler.php'; ?>
       <li><a href="/Study-Hub/User/home.php">Home</a></li>
       <li><a href="/Study-Hub/User/profile.php">Profile</a></li>
       <li><a href="/Study-Hub/Metrics/metrics.html">Metrics</a></li>
-      <li><a href="/Study-Hub/User/pomodoro.php">Pomodoro</a></li>
+      <li><a href="/Study-Hub/User/pomodoro.html">Pomodoro</a></li>
        <li><a href="/Study-Hub/Metrics/targets.php">Targets</a></li>
       <li><strong style="margin-left: 1rem;">My Groups</strong></li>
      <?php foreach ($groups as $g): ?>
