@@ -1,0 +1,71 @@
+:root {
+  --background-light: #d7fff8;
+  --background-card: #2d4a53;
+  --background-card-hover-shadow: #5a636a/0.6;
+  --background-card-shadow: #afb3b7/0.3;
+  --color-text: #eee;
+  --color-text-muted: #020202;
+  --color-primary: #cfd4da;
+  --color-primary-light: #69818d;
+  --color-accent: #58ddd0;
+  --color-button-bg: #0d1f23;
+  --color-button-bg-disabled: #ff5555;
+  --color-error: #ff7070;
+  --color-login-bg: #222139;
+  --color-close-btn: #fb0202;
+  --color-close-btn-hover: #fff;
+}
+
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: var(--background-light);
+      display: flex;
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 240px;
+      padding: 2rem;
+      width: 100%;
+    }
+
+    .profile-box {
+      max-width: 700px;
+      margin: auto;
+      background: var(--background-card);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      color: var(--color-text);
+    }
+
+    .groups {
+      margin-top: 2rem;
+    }
+
+    .group-card {  
+     background-color: var(--color-button-bg);
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .group-card h4 {
+      margin-top: 0;
+    }
+
+.to-home {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  background-color: var(--color-button-bg);
+padding: 8px;
+    border-radius: 6px;
+}
+.to-home:hover {
+  color: var(--color-button-bg);
+  background-color: var(--color-primary-light);
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="login.css" />
+  <title>Login / Sign Up</title>
+</head>
+<body>
+
+  <!-- Login Modal -->
+  <div id="login-modal" class="modal active">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form id="login-form" action="/Study-Hub/php/login.php" method="POST">
+        <label for="studentID">Student ID:</label>
+        <input type="text" id="studentID" name="studentID" required />
+        <div class="error-msg" id="studentID-error">Please enter a valid email.</div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" minlength="6" required />
+        <div class="error-msg" id="password-error">Password must be at least 6 characters.</div>
+
+        <button type="submit" class="btn-submit">Login</button>
+      </form>
+      <p class="switch-auth">Don't have an account? <a href="#" id="switch-to-signup">Sign Up here</a></p>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signup-modal" class="modal" >
+    <div class="login-box">
+      <h2>Sign Up</h2>
+      <form id="signup-form" action="/Study-Hub/php/signup.php" method="POST">
+        <label for="signup-student-id">Student ID:</label>
+        <input type="text" id="signup-student-id" name="studentID" required />
+        <div class="error-msg" id="signup-id-error">Please enter a valid 6-digit number (e.g., 123456).</div>
+
+        <label for="signup-name">Name:</label>
+        <input type="text" id="signup-name" name="name" required />
+        <div class="error-msg" id="signup-name-error">Please enter a valid name (letters only).</div>
+
+        <label for="signup-course">Course:</label>
+        <input type="text" id="signup-course" name="course" required />
+        <div class="error-msg" id="signup-course-error">Enter 3–5 uppercase letters (e.g., BBIT, ICS).</div>
+
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" name="email" required />
+        <div class="error-msg" id="signup-email-error">Please enter a valid email.</div>
+
+        <label for="signup-password">Password:</label>
+        <input type="password" id="signup-password" name="password" minlength="6" required />
+        <div class="error-msg" id="signup-password-error">Password must be at least 6 characters.</div>
+
+        <button type="submit" class="btn-submit">Create Account</button>
+      </form>
+      <p class="switch-auth">Already have an account? <a href="#" id="switch-to-login">Log in here</a></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

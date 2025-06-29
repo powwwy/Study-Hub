@@ -1,0 +1,132 @@
+:root {
+  --background-light: #d7fff8;
+  --background-card: #2d4a53;
+  --background-card-shadow: rgba(0, 0, 0, 0.2); /* ✅ Added missing variable */
+  --color-text: #eee;
+  --color-primary: #cfd4da;
+  --color-accent: #58ddd0;
+  --color-error: #ff7070;
+  --color-button-bg: #0d1f23;
+  --color-button-bg-disabled: #ff5555;
+  --color-close-btn: #fb0202;
+  --color-close-btn-hover: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background-light);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: var(--background-card);
+  box-shadow: 0 0 20px var(--background-card-shadow);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 350px;
+}
+
+.modal.active {
+  display: block;
+}
+
+.login-box h2 {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 94%;
+  padding: 0.7rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-primary);
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: 2px solid var(--color-accent);
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--color-primary);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: var(--color-button-bg);
+  color: var(--color-accent);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-accent);
+  color: var(--background-card);
+}
+
+.btn-submit:disabled {
+  background-color: var(--color-button-bg-disabled);
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.error-msg {
+  color: var(--color-error);
+  font-size: 0.85rem;
+  display: none;
+  margin-bottom: 0.5rem;
+}
+
+.switch-auth {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.switch-auth a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+.switch-auth a:hover {
+  text-decoration: underline;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-close-btn);
+  float: right;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--color-close-btn-hover);
+}
