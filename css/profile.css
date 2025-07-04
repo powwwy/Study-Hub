@@ -20,7 +20,7 @@
       font-family: sans-serif;
       margin: 0;
       background: var(--background-light);
-      display: flex;
+  
     }
 
     /* Main content */
@@ -31,7 +31,7 @@
     }
 
     .profile-box {
-      max-width: 700px;
+      max-width: auto;
       margin: auto;
       background: var(--background-card);
       padding: 2rem;
@@ -42,18 +42,32 @@
 
     .groups {
       margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 3fr));
+      gap: 1.5rem;
+      background: var(--background-card);
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      padding-right: 0;
     }
 
     .group-card {  
-     background-color: var(--color-button-bg);
-      margin-bottom: 1rem;
-      padding: 1rem;
-      border-radius: 8px;
+      background: var(--color-button-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
 
     .group-card h4 {
       margin-top: 0;
     }
+    .group-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
 
 .to-home {
   color: var(--color-accent);
@@ -66,6 +80,21 @@ padding: 8px;
     border-radius: 6px;
 }
 .to-home:hover {
+  color: var(--color-button-bg);
+  background-color: var(--color-primary-light);
+}
+
+.view-group{
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  background-color: var(--color-button-bg);
+  padding: 8px;
+  border-radius: 6px;
+}
+.view-group:hover {
   color: var(--color-button-bg);
   background-color: var(--color-primary-light);
 }
