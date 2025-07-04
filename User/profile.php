@@ -7,7 +7,7 @@ require '../php/profiler.php'; ?>
 <head>
   <title>Profile</title>
   <link rel="stylesheet" href="/Study-Hub/css/profile.css">
-  <link rel="stylesheet" href="/Study-Hub/css/nav.css">
+  <link rel="stylesheet" href="/Study-Hub/css/nav.css">\
 </head>
 <body>
 
@@ -35,15 +35,21 @@ require '../php/profiler.php'; ?>
       <p><strong>Student ID:</strong> <?= $user['StudentID'] ?></p>
       <p><strong>Email:</strong> <?= htmlspecialchars($user['Email']) ?></p>
       <p><strong>Course:</strong> <?= htmlspecialchars($user['Course']) ?></p>
-
+<h3>Your Study Groups:</h3>
       <div class="groups">
-        <h3>Your Study Groups:</h3>
         <?php if (count($groups) > 0): ?>
           <?php foreach ($groups as $group): ?>
             <div class="group-card">
+              <?php if ($group['imageURL']): ?>
+                <img src="/Study-Hub/php/<?= htmlspecialchars($group['imageURL']) ?>" alt="Group Image" class="group-image">
+              <?php else: ?>
+                <p>No image available.</p>
+              <?php endif; ?>
               <h4><?= htmlspecialchars($group['name']) ?></h4>
               <p><strong>Category:</strong> <?= htmlspecialchars($group['category']) ?></p>
               <p><?= htmlspecialchars($group['description']) ?></p>
+              
+              <a href="/Study-Hub/php/groups/group.php?id=<?= $group['GroupID'] ?>" class="view-group">View Group</a>
             </div>
           <?php endforeach; ?>
         <?php else: ?>

@@ -27,7 +27,7 @@ if (!$user) {
 
 // Fetch groups user is part of
 $stmt = $conn->prepare("
-    SELECT g.GroupID, g.Name AS name, g.Category AS category, g.Description AS description
+    SELECT g.GroupID, g.Name AS name, g.Category AS category, g.Description AS description, g.ImageURL as imageURL
     FROM studygroups g
     JOIN groupmemberships gm ON g.GroupID = gm.GroupID
     WHERE gm.UserID = ?

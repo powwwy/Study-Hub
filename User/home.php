@@ -5,7 +5,7 @@ if (!isset($_SESSION['studentID'])) {
   header("Location: /Study-Hub/User/login.html");
   exit;
 } else {
-  error_log("Logged in as user #" . $_SESSION['userID']);
+  error_log("Logged in as user #" . $_SESSION['studentID']);
 }
 ?>
 

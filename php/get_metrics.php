@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: application/json');
 
-if (!isset($_SESSION['userID'])) {
+if (!isset($_SESSION['studentID'])) {
   http_response_code(401);
   echo json_encode(["error" => "Unauthorized"]);
   exit;
@@ -10,7 +10,7 @@ if (!isset($_SESSION['userID'])) {
 
 require 'connect.php';
 
-$userId = $_SESSION['userID'];
+$userId = $_SESSION['studentID'];
 
 // Fetch CATs
 $catQuery = $conn->prepare("
