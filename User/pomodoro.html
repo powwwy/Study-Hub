@@ -2,20 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pomodoro Timer</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/Study-Hub/css/pomodoro.css" />
+  <link rel="stylesheet" href="/Study-Hub/css/nav.css">
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="pomodoro.html">Pomodoro</a>
+   <div class="sidebar">
+    <h2>Study Hub Pomodoro Timer</h2>
+    <ul>
+      <li><a href="/Study-Hub/User/home.php">Home</a></li>
+      <li><a href="/Study-Hub/User/profile.php">Profile</a></li>
+      <li><a href="/Study-Hub/Metrics/metrics.html">Metrics</a></li>
+      <li><a href="/Study-Hub/User/pomodoro.php">Pomodoro</a></li>
+      <li><a href="/Study-Hub/Metrics/targets.php">Targets</a></li>
+      <li><a href="/Study-Hub/php/logout.php">Logout</a></li>
+    </ul>
+  </div>
   </nav>
 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="pomodoro.css" />
+</head>
+<body>
+
   <main>
+
     <section id="pomodoro">
       <h2>Pomodoro Timer</h2>
-      <div id="timer">25:00</div>
+
+      <!-- Mode Selection -->
+      <div id="modeButtons">
+        <button id="focusMode">Focus</button>
+        <button id="shortBreak">Short Break</button>
+        <button id="longBreak">Long Break</button>
+      </div>
+
+      <!-- Editable Timer -->
+      <input type="text" id="timer" value="25:00" />
+
       <button id="startBtn">Start</button>
       <button id="resetBtn">Reset</button>
     </section>

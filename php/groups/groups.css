@@ -1,0 +1,113 @@
+:root {
+  --background-light: #d7fff8;
+  --background-card: #2d4a53;
+  --background-card-hover-shadow: #5a636a/0.6;
+  --background-card-shadow: #afb3b7/0.3;
+  --color-text: #eee;
+  --color-text-muted: #020202;
+  --color-primary: #cfd4da;
+  --color-primary-light: #69818d;
+  --color-accent: #58ddd0;
+  --color-button-bg: #0d1f23;
+  --color-button-bg-disabled: #ff5555;
+  --color-error: #ff7070;
+  --color-login-bg: #222139;
+  --color-close-btn: #fb0202;
+  --color-close-btn-hover: #fff;
+}
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--background-light);
+}
+
+/* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: var(--color-button-bg);
+      color: var(--color-text);
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 2rem 1rem;
+        box-shadow: 4px 0 8px rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+    }
+
+    .sidebar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 1rem;
+    }
+
+    .sidebar ul li a {
+      color: var(--color-text);
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.2s ease;
+    }
+
+    .sidebar ul li a:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      min-height: 100vh;
+    }
+
+     .rightbar {
+  width: 240px;
+  background: var(--color-button-bg);
+  color: var(--color-text);
+  padding: 2rem 1rem;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.7); /* mirror sidebar */
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 240px; /* account for left sidebar */
+  margin-right: 240px; /* account for right sidebar */
+  padding: 2rem;
+
+  color: var(--color-text-muted);
+  min-height: 100vh;
+}
+
+
+    .rightbar h3 {
+      margin-top: 0;
+    }
+
+    .rightbar ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .rightbar li {
+      margin-bottom: 0.5rem;
+      padding: 5px;
+      border-radius: 4px;
+    }

@@ -5,16 +5,16 @@ require 'connect.php'; // DB connection
 $groups = [];
 
 // Ensure user is logged in
-if (!isset($_SESSION['userID'])) {
+if (!isset($_SESSION['studentID'])) {
     echo "Not logged in.";
     exit;
 }
 
-$userId = $_SESSION['userID'];
+$studentID = $_SESSION['studentID'];
 
 // Fetch user info if needed (optional)
-$stmt = $conn->prepare("SELECT * FROM users WHERE UserID = ?");
-$stmt->bind_param("i", $userId);
+$stmt = $conn->prepare("SELECT * FROM users WHERE StudentID = ?");
+$stmt->bind_param("i", $studentID);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
@@ -32,7 +32,7 @@ $stmt = $conn->prepare("
     JOIN groupmemberships gm ON g.GroupID = gm.GroupID
     WHERE gm.UserID = ?
 ");
-$stmt->bind_param("i", $userId);
+$stmt->bind_param("i", $studentID); 
 $stmt->execute();
 $result = $stmt->get_result();
 $groups = $result->fetch_all(MYSQLI_ASSOC);

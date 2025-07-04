@@ -76,7 +76,7 @@ while ($row = $groupResult->fetch_assoc()) {
     if (isset($catData[$label])) {
       $score = $catData[$label]['score'];
       $outOf = $catData[$label]['outOf'];
-      $catScores[] = $outOf > 0 ? round(($score / $outOf) * 10, 1) : 0;
+      $catScores[] = $outOf > 0 ? round(($score / $outOf) * $outOf, 1) : 0;
     } else {
       $catScores[] = 0;
     }
@@ -84,10 +84,19 @@ while ($row = $groupResult->fetch_assoc()) {
 
   $examScore = $examData['score'] ?? null;
 
+  $totalCatOutOf = 0;
+  foreach ($catData as $cat) {
+    $totalCatOutOf += $cat['outOf'];
+  }
+
+  $examOutOf = $examData['outOf'] ?? 0;
+  $totalOutOf = $totalCatOutOf + $examOutOf;
+
+
   $data[] = [
     'name' => $unitName,
-    'cwWeight' => 40,
-    'examWeight' => 60,
+    'cwWeight' => $totalCatOutOf,
+    'examWeight' => $examOutOf,
     'catScores' => $catScores,
     'examScore' => $examScore
   ];

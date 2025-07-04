@@ -22,9 +22,8 @@ require '../php/profiler.php'; ?>
        <li><a href="/Study-Hub/Metrics/targets.php">Targets</a></li>
       <li><strong style="margin-left: 1rem;">My Groups</strong></li>
      <?php foreach ($groups as $g): ?>
-  <li><a href="/Study-Hub/User/group.php?id=<?= $g['GroupID'] ?>"> <?= htmlspecialchars($g['name']) ?></a></li>
+  <li><a href="/Study-Hub/php/groups/group.php?id=<?= $g['GroupID'] ?>"> <?= htmlspecialchars($g['name']) ?></a></li>
 <?php endforeach; ?>
-      <li><a href="/Study-Hub/User/files.php">Files</a></li>
       <li><a href="/Study-Hub/php/logout.php">Logout</a></li>
     </ul>
   </div>

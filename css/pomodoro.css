@@ -1,0 +1,97 @@
+:root {
+  --background-light: #d7fff8;
+  --background-card: #2d4a53;
+  --background-card-hover-shadow: rgba(90, 99, 106, 0.6);
+  --background-card-shadow: rgba(175, 179, 183, 0.3);
+  --color-text: #eee;
+  --color-text-muted: #020202;
+  --color-primary: #cfd4da;
+  --color-primary-light: #69818d;
+  --color-accent: #58ddd0;
+  --color-button-bg: #0d1f23;
+  --color-button-bg-disabled: #ff5555;
+  --color-error: #ff7070;
+  --color-login-bg: #222139;
+  --color-close-btn: #fb0202;
+  --color-close-btn-hover: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 2rem;
+}
+main {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pomodoro {
+  background-color: var(--background-card);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px var(--background-card-shadow);
+  padding: 2.5rem 3rem;
+  width: 320px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#pomodoro:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px var(--background-card-hover-shadow);
+}
+
+#pomodoro h2 {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+#timer {
+  width: 120px;
+  font-size: 3rem;
+  text-align: center;
+  background-color: var(--background-card);
+  color: var(--color-text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  margin: 20px auto;
+  display: block;
+}
+
+button {
+  background-color: var(--color-button-bg);
+  color: var(--color-text);
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-primary-light);
+}
+
+button:disabled {
+  background-color: var(--color-button-bg-disabled);
+  cursor: not-allowed;
+  opacity: 0.7;
+}

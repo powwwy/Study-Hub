@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['userID'])) {
+if (!isset($_SESSION['studentID'])) {
   echo "Not logged in!";
   header("Location: /Study-Hub/User/login.html");
   exit;
 } else {
-  echo "Logged in as user #" . $_SESSION['userID'];
+  error_log("Logged in as user #" . $_SESSION['userID']);
 }
 ?>
 
@@ -26,9 +26,8 @@ if (!isset($_SESSION['userID'])) {
       <li><a href="/Study-Hub/User/home.php">Home</a></li>
       <li><a href="/Study-Hub/User/profile.php">Profile</a></li>
       <li><a href="/Study-Hub/Metrics/metrics.html">Metrics</a></li>
-      <li><a href="/Study-Hub/User/pomodoro.php">Pomodoro</a></li>
-      <li><a href="/Study-Hub/Metrics/targets.html">Targets</a></li>
-      <li><a href="/Study-Hub/User/files.php">Files</a></li>
+      <li><a href="/Study-Hub/User/pomodoro.html">Pomodoro</a></li>
+      <li><a href="/Study-Hub/Metrics/targets.php">Targets</a></li>
       <li><a href="/Study-Hub/php/logout.php">Logout</a></li>
     </ul>
   </div>
@@ -41,31 +40,44 @@ if (!isset($_SESSION['userID'])) {
   <div class="search-bar">
     <input type="text" placeholder="Search units..." disabled title="Search is not functional yet" />
   </div>
-  <a class="btn-login" id="open-login-btn" href="login.html" >Login / Signup</a>
+  <a class="btn-login" id="open-login-btn" href="/Study-Hub/php/logout.php" >Logout</a>
 </nav>
 
   <h2 style="text-align:center;">Join Now!</h2>
   <div id="groups-list" class="card-container"></div>
 
   <script>
-function joinGroup(groupId) {
-fetch('../php/join_group.php', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  },
-  body: `group_id=${groupId}`,
-  credentials: 'include' 
-})
+function joinGroup(groupID) {
+  console.log("Sending join request for group:", groupID);
 
-  .then(res => res.json())
-  .then(data => {
+  fetch('../php/join_group.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: `group_id=${Number(groupID)}`,
+    credentials: 'include'
+  })
+  .then(res => res.text())
+  .then(text => {
+    console.log("Raw response:", text);
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      console.error("JSON parse error:", e);
+      alert("Bad JSON response.");
+      return;
+    }
     if (data.message) {
       alert(data.message);
-      // Optional: disable button or change UI
     } else if (data.error) {
-      alert('Error: ' + data.error);
+      alert("Error: " + data.error);
     }
+  })
+  .catch(error => {
+    console.error("Fetch error:", error);
+    alert("Something went wrong. Please try again.");
   });
 }
 
@@ -75,13 +87,17 @@ fetch('../php/get_groups.php')
     const container = document.getElementById('groups-list');
     container.innerHTML = data.map(group => `
       <div class="card">
+        ${group.ImageURL ? `<img src="/Study-Hub/php/${group.ImageURL}" alt="${group.name}" class="group-image">` : ''}
         <h3>${group.name}</h3>
         <p><strong>Category:</strong> ${group.category}</p>
         <p>${group.description}</p>
         <button class="join-btn" onclick="joinGroup(${group.groupID})">Join Group</button>
-
       </div>
     `).join('');
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+    document.getElementById('groups-list').innerHTML = `<p>Unable to load groups.</p>`;
   });
 </script>
 

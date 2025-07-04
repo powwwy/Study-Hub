@@ -1,35 +1,36 @@
 <?php
 session_start();
-error_log("SESSION: " . print_r($_SESSION, true));
+header('Content-Type: application/json');
 
-if (!isset($_SESSION['userID'])) {
+if (!isset($_SESSION['studentID'])) {
   http_response_code(401);
   echo json_encode(["error" => "Unauthorized"]);
   exit;
 }
+require 'connect.php';
+$studentID = $_SESSION['studentID'];
+$groupID = $_POST['group_id'] ?? null;
 
-$userId = $_SESSION['userID'];
-$groupId = $_POST['group_id'] ?? null;
-
-if (!$groupId) {
+if (!$groupID) {
   http_response_code(400);
   echo json_encode(["error" => "No group selected"]);
   exit;
 }
 
-require 'connect.php';
+// Log for debugging
+error_log("Trying to add student $studentID to group $groupID");
 
 $stmt = $conn->prepare("SELECT * FROM groupmemberships WHERE UserID = ? AND GroupID = ?");
-$stmt->bind_param("ii", $userId, $groupId);
+$stmt->bind_param("ii", $studentID, $groupID);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
   echo json_encode(["message" => "Already in group"]);
 } else {
-  $joinedAt = date('Y-m-d H:i:s'); // current datetime
+  $joinedAt = date('Y-m-d H:i:s');
   $stmt = $conn->prepare("INSERT INTO groupmemberships (UserID, GroupID, JoinedAt) VALUES (?, ?, ?)");
-  $stmt->bind_param("iis", $userId, $groupId, $joinedAt);
+  $stmt->bind_param("iis", $studentID, $groupID, $joinedAt);
   if ($stmt->execute()) {
     echo json_encode(["message" => "Joined group"]);
   } else {
@@ -37,4 +38,4 @@ if ($result->num_rows > 0) {
     echo json_encode(["error" => "Failed to join"]);
   }
 }
-
+?>

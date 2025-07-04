@@ -1,11 +1,6 @@
 <?php
-$host = "localhost";
-$username = "root";     
-$password = "";          
-$database = "study-hub";
-
 // Create connection
-$conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli("localhost", "root", "", "study_hub", 3307);
 
 // Check connection
 if ($conn->connect_error) {

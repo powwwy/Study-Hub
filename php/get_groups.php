@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
 
-$sql = "SELECT groupID, name, category, description FROM studygroups";
+$sql = "SELECT groupID, name, category, description, ImageURL FROM studygroups";
 $result = $conn->query($sql);
 
 $groups = [];

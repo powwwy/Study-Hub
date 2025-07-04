@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     $stmt->bind_param("issss", $studentID, $name, $course, $email, $password);
     if ($stmt->execute()) {
         echo "Signup successful!";
-        header("Location: .../User/index.html"); // Redirect to login page
+        header("Location: ../User/index.html"); // Redirect to login page
     } else {
         echo "Signup failed: " . $conn->error;
     }

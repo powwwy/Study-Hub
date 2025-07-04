@@ -13,7 +13,7 @@ if ($result->num_rows === 1) {
     $user = $result->fetch_assoc();
     if (password_verify($password, $user['PasswordHash'])) {
         session_start();
-        $_SESSION['userID'] = $user['UserID'];
+        $_SESSION['studentID'] = $user['StudentID'];
         $_SESSION['name'] = $user['Name'];
         echo "Login successful. Welcome, " . $user['Name'];
         header("Location: ../User/profile.php"); // Redirect to user dashboard
