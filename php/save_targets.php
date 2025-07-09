@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['userID'])) {
+if (!isset($_SESSION['studentID'])) {
   http_response_code(401);
   echo "Unauthorized";
   exit;
@@ -8,7 +8,7 @@ if (!isset($_SESSION['userID'])) {
 
 require 'connect.php';
 
-$userId = $_SESSION['userID'];
+$userId = $_SESSION['studentID'];
 $groupId = $_POST['group_id'] ?? null;
 
 // Collect CAT scores

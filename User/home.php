@@ -37,9 +37,6 @@ if (!isset($_SESSION['studentID'])) {
 </div>
   <hr>
 <nav>
-  <div class="search-bar">
-    <input type="text" placeholder="Search units..." disabled title="Search is not functional yet" />
-  </div>
   <a class="btn-login" id="open-login-btn" href="/Study-Hub/php/logout.php" >Logout</a>
 </nav>
 

@@ -1,7 +1,6 @@
 <?php
 require '../connect.php';
-
-require '../profiler.php'; 
+require '../profiler.php';
 
 if (!isset($_SESSION['studentID']) || !isset($_GET['id'])) {
   header('Location: /Study-Hub/User/profile.php');
@@ -29,6 +28,8 @@ $group->execute();
 $nameResult = $group->get_result()->fetch_assoc();
 $groupName = $nameResult['Name'];
 
+
+
 // Fetch members
 $members = $conn->prepare("
   SELECT u.Name 
@@ -39,15 +40,28 @@ $members = $conn->prepare("
 $members->bind_param("i", $groupId);
 $members->execute();
 $memberResult = $members->get_result();
+
+// Fetch user's groups for sidebar
+$groupQuery = $conn->prepare("
+  SELECT sg.GroupID, sg.Name
+  FROM studygroups sg
+  JOIN groupmemberships gm ON sg.GroupID = gm.GroupID
+  WHERE gm.UserID = ?
+");
+$groupQuery->bind_param("i", $userId);
+$groupQuery->execute();
+$groupsResult = $groupQuery->get_result();
+$groups = $groupsResult->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?= htmlspecialchars($groupName) ?> - Group Page</title>
   <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="groups.css">
+  <title><?= htmlspecialchars($groupName) ?> - Group Page</title>
+  <!--<link rel="stylesheet" href="/Study-Hub/react-chat/build/static/css/main.445f4d08.css">-->
+  <link rel="stylesheet" href="/Study-Hub/css/App.css">
+  <link rel="stylesheet" href="/Study-Hub/css/groups.css">
 </head>
 <body>
   <div class="container">
@@ -61,9 +75,11 @@ $memberResult = $members->get_result();
         <li><a href="/Study-Hub/Metrics/targets.php">Targets</a></li>
         <li><strong style="margin-left: 1rem;">My Groups</strong></li>
         <?php foreach ($groups as $g): ?>
-          <li><a href="/Study-Hub/php/groups/group.php?id=<?= $g['GroupID'] ?>">
-            <?= htmlspecialchars($g['name']) ?>
-          </a></li>
+          <li>
+            <a href="/Study-Hub/php/groups/group.php?id=<?= $g['GroupID'] ?>">
+              <?= htmlspecialchars($g['Name']) ?>
+            </a>
+          </li>
         <?php endforeach; ?>
         <li><a href="/Study-Hub/php/logout.php">Logout</a></li>
       </ul>
@@ -71,8 +87,7 @@ $memberResult = $members->get_result();
 
     <div class="main-content">
       <h2><?= htmlspecialchars($groupName) ?></h2>
-      <!-- Add group-specific content here -->
-      <p>Welcome to the group page.</p>
+      <p>Welcome to the group page, <?= htmlspecialchars($user['Name']) ?>!</p>
     </div>
 
     <div class="rightbar">
@@ -84,5 +99,16 @@ $memberResult = $members->get_result();
       </ul>
     </div>
   </div>
+  <div id="react-chat" data-group-id="<?= htmlspecialchars($groupId) ?>"></div>
+<script>
+    // React Chat will mount here
+    document.addEventListener('DOMContentLoaded', function() {
+      const chatElement = document.getElementById('react-chat');
+      if (chatElement) {
+        chatElement.setAttribute('data-group-id', '<?= htmlspecialchars($groupId) ?>');
+      }
+    });
+  </script>
+  <script src="/Study-Hub/react-chat/build/static/js/main.826deaa2.js"defer></script>
 </body>
 </html>

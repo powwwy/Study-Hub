@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'connect.php';
+require '../php/connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adminID = trim($_POST['AdminID']);
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($password === $admin['password']) {  // No hashing
             $_SESSION['adminID'] = $admin['AdminID'];
-            header("Location: create_group.php");
+            header("Location: /Study-Hub/Admin/create_group.php");
             exit;
         } else {
             echo "Incorrect password.";

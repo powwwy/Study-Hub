@@ -7,7 +7,7 @@ require '../php/profiler.php'; ?>
 <head>
   <title>Profile</title>
   <link rel="stylesheet" href="/Study-Hub/css/profile.css">
-  <link rel="stylesheet" href="/Study-Hub/css/nav.css">\
+  <link rel="stylesheet" href="/Study-Hub/css/nav.css">
 </head>
 <body>
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'connect.php';
+require '../php/connect.php';
 
 if (!isset($_SESSION['adminID'])) {
     echo "Unauthorized access.";
@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <title>Create Group</title>
   <link rel="stylesheet" href="/Study-Hub/css/admin.css">
+  <link rel="stylesheet" href="/Study-Hub/css/nav.css">
 </head>
 <body>
   <div class="container">
@@ -54,6 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST" action="create_group.php" enctype="multipart/form-data">
       <label for="group_name">Group Name</label>
       <input type="text" name="group_name" id="group_name" required>
+
+      <div class="sidebar">
+    <h2>Study Hub Admin</h2>
+    <ul>
+      <li><a href="/Study-Hub/Admin/create_groups.php">Create Groups</a></li>
+      <li><a href="/Study-Hub/php/logout.php">Logout</a></li>
+    </ul>
+  </div>
 
       <label for="category">Category</label>
       <select name="category" id="category" required>

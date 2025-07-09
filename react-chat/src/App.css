@@ -1,0 +1,284 @@
+:root {
+  /* Color Palette */
+  --background-light: #e6f7ff;
+  --background-card: #1a2e35;
+  --color-text: #f0f8ff;
+  --color-text-muted: #a8c0d0;
+  --color-primary: #8ab4c9;
+  --color-primary-light: #5a8da8;
+  --color-accent: #4fd1c5;
+  --color-accent-dark: #38b2ac;
+  --color-button-bg: #0d1f23;
+  --color-error: #ff6b6b;
+  --color-success: #48bb78;
+
+  /* Sizing */
+  --chat-bubble-tail: 8px;
+  --transition-speed: 0.25s;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Chat Container */
+.chat-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  margin-top: -550px;
+  background: linear-gradient(135deg, rgba(45,74,83,0.9) 0%, rgba(26,46,53,0.95) 100%);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.chat-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+h2 {
+  text-align: center;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
+  color: #000;
+  padding: 18px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+}
+
+/* Messages Area */
+.messages {
+  height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  background: linear-gradient(rgba(214, 255, 248, 0.9), rgba(214, 255, 248, 0.95));
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+.messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+/* Message Bubbles */
+.message {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Message Structure */
+.message-header {
+  margin-bottom: 4px;
+}
+
+.sender-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.message-content {
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.message-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 0.75rem;
+}
+
+/* Received Messages */
+.message.other {
+  background: var(--color-button-bg);
+  color: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  margin-right: auto;
+}
+
+.message.other .sender-name {
+  color: var(--color-accent);
+}
+
+.message.other .message-footer {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Sent Messages */
+.message.self {
+  background: var(--color-accent);
+  color: #000;
+  align-self: flex-end !important;
+  border-bottom-right-radius: 4px;
+  margin-left: auto;
+}
+
+.message.self .message-footer {
+  color: rgba(0,0,0,0.7);
+}
+
+/* Timestamp and Status */
+.timestamp {
+  opacity: 0.8;
+}
+
+.message-status {
+  margin-left: 6px;
+}
+
+/* Input Form */
+form {
+  display: flex;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  background: var(--color-button-bg);
+  padding: 8px;
+}
+
+form input {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  margin-right: 8px;
+  transition: all var(--transition-speed) ease;
+}
+
+form input:focus {
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+form input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* Send Button */
+form button {
+  padding: 0 24px;
+  background: var(--color-accent);
+  border: none;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+form button:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 209, 197, 0.3);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: flex;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 18px;
+  align-self: flex-start;
+  margin-bottom: 10px;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.typing-dots span {
+  display: inline-block;
+  animation: bounce 1.5s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Message Status */
+.message-status {
+  animation: pulse 1.5s infinite;
+  font-size: 0.7rem;
+}
+
+.message-status.sent {
+  color: var(--color-primary);
+}
+
+.message-status.read {
+  color: var(--color-success);
+  animation: none;
+}
