@@ -28,8 +28,6 @@ $group->execute();
 $nameResult = $group->get_result()->fetch_assoc();
 $groupName = $nameResult['Name'];
 
-
-
 // Fetch members
 $members = $conn->prepare("
   SELECT u.Name 
@@ -88,6 +86,35 @@ $groups = $groupsResult->fetch_all(MYSQLI_ASSOC);
     <div class="main-content">
       <h2><?= htmlspecialchars($groupName) ?></h2>
       <p>Welcome to the group page, <?= htmlspecialchars($user['Name']) ?>!</p>
+
+      <!-- 🔽 File Upload Section -->
+      <div class="file-upload-section">
+        <h3>Share a File with the Group</h3>
+        <form action="upload_file.php?id=<?= $groupId ?>" method="POST" enctype="multipart/form-data">
+          <input type="file" name="shared_file" required>
+          <button type="submit" class="btn">Upload</button>
+        </form>
+      </div>
+
+      <!-- 📂 Shared Files List -->
+      <div class="file-list-section" style="margin-top: 1.5rem;">
+        <h3>Shared Files</h3>
+        <ul>
+          <?php
+          $uploadDir = "../../uploads/group_$groupId/";
+          if (is_dir($uploadDir)) {
+            $files = scandir($uploadDir);
+            foreach ($files as $file) {
+              if ($file !== "." && $file !== "..") {
+                echo "<li><a href='$uploadDir$file' download>" . htmlspecialchars($file) . "</a></li>";
+              }
+            }
+          } else {
+            echo "<li>No files uploaded yet.</li>";
+          }
+          ?>
+        </ul>
+      </div>
     </div>
 
     <div class="rightbar">
@@ -99,8 +126,9 @@ $groups = $groupsResult->fetch_all(MYSQLI_ASSOC);
       </ul>
     </div>
   </div>
+
   <div id="react-chat" data-group-id="<?= htmlspecialchars($groupId) ?>"></div>
-<script>
+  <script>
     // React Chat will mount here
     document.addEventListener('DOMContentLoaded', function() {
       const chatElement = document.getElementById('react-chat');
@@ -109,6 +137,6 @@ $groups = $groupsResult->fetch_all(MYSQLI_ASSOC);
       }
     });
   </script>
-  <script src="/Study-Hub/react-chat/build/static/js/main.826deaa2.js"defer></script>
+  <script src="/Study-Hub/react-chat/build/static/js/main.826deaa2.js" defer></script>
 </body>
 </html>
