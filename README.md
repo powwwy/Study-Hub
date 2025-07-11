@@ -1,37 +1,37 @@
 <h1>Study Hub</h1>
-Study Hub is a comprehensive web application designed to empower students by facilitating the formation of effective study groups, seamless sharing of notes, and efficient tracking of study progress — all within a single, intuitive platform. Leveraging smart matching algorithms, Study Hub connects students based on shared units, compatible availability, and complementary study habits to foster collaboration and maximize academic success.
+Study Hub is a web-based academic management system developed as a semester project during our second year of university. The system is designed to help students organize and manage their studies more effectively, while also demonstrating our team's skills in full-stack web development.
 
-Features
-Intelligent Group Matching: Dynamically pairs students who share common units and compatible schedules, ensuring productive and focused study groups.
+Design and User Interface
+The project features a clean, modern, and consistent design implemented using CSS. Special attention was given to creating a user-friendly interface that is both responsive and visually appealing. Consistent color schemes, intuitive layouts, and responsive components ensure the system works well across various devices.
 
-Collaborative Note Sharing: Provides a centralized repository where students can upload, access, and exchange study materials and notes within their groups.
+Technologies Used
+The project is built using a combination of the following technologies:
 
-Progress Monitoring: Enables users to set personalized weekly study goals and track progress over time, promoting accountability and continuous improvement.
+HTML – for structuring web content
 
-Technologies Utilized
-HTML5 for semantic and accessible web page structure.
+CSS – for styling and responsive design
 
-CSS3 for responsive and modern styling to enhance user experience.
+JavaScript – for client-side interactivity
 
-(Planned) JavaScript to introduce interactivity, dynamic content updates, and user engagement features.
+PHP – for server-side processing
 
-Project Overview
-index.html – Core interface showcasing matched study groups, shared notes, and progress tracking components.
+MySQL – for data storage and management
 
-styles.css – Styling resources to maintain a cohesive, clean design language.
+How to Run the System
+To set up and run the Study Hub system on a local machine, follow these steps:
 
-Getting Started
-Clone or download the repository.
+Download the ZIP file containing the full project source code.
 
-Open index.html using any modern web browser (Chrome, Firefox, Edge, Safari).
+Extract the contents and place the folder in your local web server's root directory (such as htdocs if using XAMPP).
 
-Explore the interface to understand the envisioned workflow and functionalities.
+Import the database:
 
-Future Enhancements
-Robust user authentication and profile management system.
+Open phpMyAdmin or any other MySQL management tool.
 
-Note upload/download and version control functionalities.
+Create a new database named Study-Hub.
 
-Interactive dashboards featuring analytics and visual progress reports.
+Import the provided Study-Hub.sql file to create the necessary tables and populate them with sample data.
 
-Mobile responsiveness and accessibility optimizations.
+Start your local server, ensuring both Apache and MySQL are running.
+
+Access the system by navigating to http://localhost/[folder-name] in your web browser.
