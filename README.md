@@ -32,7 +32,7 @@ Import the database:
 
 Open phpMyAdmin or any other MySQL management tool.
 
-Create a new database named Study-Hub.
+Create a new database named "study_hub".
 
 Import the provided Study-Hub.sql file to create the necessary tables and populate them with sample data.
 
