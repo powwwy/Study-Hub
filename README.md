@@ -15,6 +15,8 @@ CSS – for styling and responsive design
 
 JavaScript – for client-side interactivity
 
+React - Used for the chat implementations
+
 PHP – for server-side processing
 
 MySQL – for data storage and management
