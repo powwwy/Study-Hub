@@ -1,7 +1,7 @@
 <h1>Study Hub</h1>
-Study Hub is a web-based study group web app developed as a semester project during our second year of university. The system is designed to help students organize and manage their studies more effectively, while also demonstrating our team's skills in full-stack web development.
+Study Hub is a web-based study group web app developed as a semester project during our second year of university. The system is designed to help students organize and manage their studies more effectively, while also demonstrating our team's skills in full-stack web development.<br>
 
-Design and User Interface
+Design and User Interface <br>
 The project features a clean, modern, and consistent design implemented using CSS. Special attention was given to creating a user-friendly interface that is both responsive and visually appealing. Consistent color schemes, intuitive layouts, and responsive components ensure the system works well across various devices.
 
 Technologies Used
